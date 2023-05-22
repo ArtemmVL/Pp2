@@ -1047,7 +1047,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Position>3</Position>
     </column>
     <column id="300" parent="296" name="age">
-      <DasType>int|0s</DasType>
+      <DasType>tinyint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
