@@ -11,7 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoHibernateImpl implements UserDao {
-    Transaction transaction = null;
+    private Transaction transaction = null;
+
     public UserDaoHibernateImpl() {
 
     }
@@ -75,7 +76,7 @@ public class UserDaoHibernateImpl implements UserDao {
         List<User> usersList = new ArrayList<>();
         try (Session session = Util.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
-            Query<User> query = session.createNativeQuery("SELECT * FROM users").addEntity(User.class);
+            Query<User> query = session.createNativeQuery("SELECT * FROM users", User.class);
             usersList = query.list();
             transaction.commit();
         } catch (Exception e) {
